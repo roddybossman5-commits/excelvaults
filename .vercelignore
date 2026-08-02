@@ -1,0 +1,10 @@
+# The Vercel CLI uploads from the working directory and does NOT honour .gitignore,
+# so the real-credential seed must be excluded here as well or it gets bundled into
+# the public production JS. Deployed builds fall back to seedUsers.example.json.
+#
+# See wiki/mock-auth.md.
+src/mocks/seedUsers.local.json
+
+.playwright-mcp
+build
+node_modules

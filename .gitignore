@@ -11,3 +11,5 @@ node_modules
 
 # Real credentials — commit seedUsers.example.json instead. See wiki/mock-auth.md.
 src/mocks/seedUsers.local.json
+
+.vercel
