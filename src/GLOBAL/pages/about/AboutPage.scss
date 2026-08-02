@@ -1,0 +1,57 @@
+@use '../../../global' as *;
+
+.about {
+  &__art {
+    display: none;
+    width: 100%;
+    height: auto;
+    border-radius: $radius-md;
+
+    @media (min-width: $breakpoint-md) {
+      display: block;
+    }
+  }
+
+  &__advantages-row {
+    display: grid;
+    gap: $space-xl;
+    align-items: center;
+
+    @media (min-width: $breakpoint-md) {
+      grid-template-columns: 2fr 1fr;
+    }
+  }
+
+  &__advantages {
+    padding-left: $space-lg;
+
+    li {
+      margin-bottom: $space-md;
+    }
+  }
+
+  &__cta {
+    background: $color-secondary;
+    padding: $space-xl 0;
+  }
+
+  &__cta-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $space-md;
+
+    @media (min-width: $breakpoint-md) {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    h2 {
+      color: #fff;
+      font-size: 22px;
+      margin: 0;
+      text-transform: none;
+    }
+  }
+}

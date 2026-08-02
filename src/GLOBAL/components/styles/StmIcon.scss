@@ -1,0 +1,28 @@
+// Theme icon font, mirrored from the live site into src/assets/fonts/.
+// Kept under src/ rather than public/ so webpack fingerprints and bundles it —
+// an absolute `/fonts/…` URL makes resolve-url-loader try to resolve it as a
+// module and the build fails.
+//
+// Declared here rather than in base.scss so the @font-face travels with the
+// component that needs it.
+@font-face {
+  font-family: 'stm';
+  src: url('../../../assets/fonts/stm.woff') format('woff'),
+       url('../../../assets/fonts/stm.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.stm-icon {
+  font-family: 'stm';
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  speak: none;
+  text-transform: none;
+  color: inherit; // follows the theme palette wherever it is placed
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

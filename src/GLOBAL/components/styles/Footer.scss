@@ -1,0 +1,51 @@
+@use '../../../global' as *;
+
+.footer {
+  background: $color-primary;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 13px;
+
+  h4 {
+    color: #fff;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: $space-md;
+  }
+
+  &__inner {
+    display: grid;
+    gap: $space-xl;
+    padding-top: $space-xl;
+    padding-bottom: $space-xl;
+
+    @media (min-width: $breakpoint-md) {
+      grid-template-columns: 2fr 1fr;
+    }
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    margin-bottom: $space-sm;
+  }
+
+  a {
+    color: rgba(255, 255, 255, 0.55);
+
+    &:hover {
+      color: $color-accent;
+      text-decoration: none;
+    }
+  }
+
+  &__bar {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: $space-md 0;
+    font-size: 12px;
+  }
+}

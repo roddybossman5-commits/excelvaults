@@ -1,0 +1,21 @@
+{
+  "$comment": "Template for src/mocks/seedUsers.local.json, which is gitignored because it holds real credentials. Copy this file, rename it, and fill in real values. Add an object to `users` to register another account — no code change needed. Profile fields mirror the account dashboard rows.",
+  "users": [
+    {
+      "id": "example",
+      "username": "CHANGEME",
+      "password": "CHANGEME",
+      "profile": {
+        "firstName": "Jane",
+        "lastName": "Doe",
+        "item": "1 KG Of Gold",
+        "dateOfDeposit": "01/01/2020",
+        "phoneNumber": "+440000000000",
+        "serialNumber": "EX00000000",
+        "country": "United Kingdom",
+        "nextOfKin": "John Doe",
+        "notice": "Balance due 0 pound sterling"
+      }
+    }
+  ]
+}

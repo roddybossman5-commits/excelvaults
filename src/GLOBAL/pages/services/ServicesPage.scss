@@ -1,0 +1,37 @@
+@use '../../../global' as *;
+
+.services-strip {
+  background: $color-secondary;
+  color: rgba(255, 255, 255, 0.7);
+
+  .grid {
+    gap: 0;
+  }
+
+  &__item {
+    padding: $space-xxl $space-xl;
+    text-align: center;
+
+    // Matches the live site's stacked rgba(0,0,0,0.1) / 0.2 column tints.
+    &[data-shade='1'] {
+      background: rgba(0, 0, 0, 0.1);
+    }
+
+    &[data-shade='2'] {
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    h3 {
+      color: #fff;
+      font-size: 24px;
+      font-weight: 700;
+    }
+  }
+
+  // Live shortcode passes icon_color="#ffffff" on this dark band.
+  &__icon {
+    display: block;
+    color: #fff;
+    margin-bottom: $space-lg;
+  }
+}

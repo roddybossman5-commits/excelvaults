@@ -1,0 +1,52 @@
+@use '../../../global' as *;
+
+.shipment {
+  margin-top: $space-xl;
+
+  &__row {
+    display: grid;
+    gap: $space-sm;
+    margin-bottom: $space-md;
+
+    @media (min-width: $breakpoint-md) {
+      grid-template-columns: 1fr 2fr;
+      gap: $space-lg;
+    }
+  }
+
+  &__label {
+    font-weight: 600;
+    color: $color-heading;
+  }
+
+  &__radios {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $space-md;
+
+    label {
+      display: inline-flex;
+      align-items: center;
+      gap: $space-xs;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: $space-md;
+  }
+
+  &__reset {
+    background: none;
+    border: 0;
+    font: inherit;
+    color: $color-text;
+    cursor: pointer;
+  }
+
+  &__note {
+    font-size: 13px;
+    color: $color-muted;
+  }
+}

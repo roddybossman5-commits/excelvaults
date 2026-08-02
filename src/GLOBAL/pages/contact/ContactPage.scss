@@ -1,0 +1,30 @@
+@use '../../../global' as *;
+
+.contacts {
+  display: grid;
+  gap: $space-xl;
+
+  @media (min-width: $breakpoint-md) {
+    grid-template-columns: 1fr 2fr;
+  }
+
+  &__locations p {
+    margin-bottom: $space-md;
+  }
+
+  &__check {
+    display: flex;
+    align-items: center;
+    gap: $space-sm;
+    margin-bottom: $space-md;
+    font-size: 14px;
+  }
+
+  &__details {
+    margin-top: $space-xl;
+
+    h2 {
+      font-size: 20px;
+    }
+  }
+}

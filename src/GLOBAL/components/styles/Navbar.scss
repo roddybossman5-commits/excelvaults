@@ -1,0 +1,115 @@
+@use '../../../global' as *;
+
+.navbar {
+  background: $color-surface;
+  border-bottom: 1px solid $color-border;
+  position: relative;
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    gap: $space-lg;
+    padding-top: $space-md;
+    padding-bottom: $space-md;
+  }
+
+  &__brand {
+    display: flex;
+    align-items: center;
+    gap: $space-sm;
+    color: $color-primary;
+    text-decoration: none;
+    margin-right: auto;
+  }
+
+  &__logo {
+    display: block;
+    height: 42px;
+    width: auto;
+  }
+
+  &__nav {
+    display: flex;
+    gap: $space-lg;
+  }
+
+  &__link {
+    color: $color-primary;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    text-decoration: none;
+
+    &:hover,
+    &.active {
+      color: $color-accent;
+      text-decoration: none;
+    }
+  }
+
+  &__call {
+    display: none;
+    font-size: 12px;
+    font-weight: 700;
+    color: $color-primary;
+
+    @media (min-width: $breakpoint-lg) {
+      display: inline;
+    }
+  }
+
+  &__toggle {
+    background: none;
+    border: 0;
+    font-size: 22px;
+    line-height: 1;
+    color: $color-primary;
+    cursor: pointer;
+
+    @media (min-width: $breakpoint-md) {
+      display: none;
+    }
+  }
+
+  &__mobile {
+    display: flex;
+    flex-direction: column;
+    gap: $space-md;
+    padding: $space-md;
+    border-top: 1px solid $color-border;
+
+    @media (min-width: $breakpoint-md) {
+      display: none;
+    }
+  }
+}
+
+// The desktop nav is hidden below md in both modes (that is normal responsive
+// behaviour — the hamburger takes over).
+.navbar__nav {
+  display: none;
+
+  @media (min-width: $breakpoint-md) {
+    display: flex;
+  }
+}
+
+// RAW mode reproduces the live-site bug: the desktop nav never becomes visible,
+// so the links — and with them the Tracking/login route — are mobile-only.
+// FIXED mode leaves the rule off. See wiki/bypass-flags.md.
+.navbar__nav[data-raw-mobile-only='true'] {
+  @media (min-width: $breakpoint-md) {
+    display: none;
+  }
+}
+
+// The hamburger is hidden above md in both modes, so in RAW mode there is no
+// route to the menu at all on desktop — that is issue 2, the Tracking/login page
+// being unreachable on a desktop screen. Kept explicit rather than implicit so the
+// reproduction is deliberate and not an accident of the breakpoint above.
+.navbar[data-mode='raw'] .navbar__toggle {
+  @media (min-width: $breakpoint-md) {
+    display: none;
+  }
+}

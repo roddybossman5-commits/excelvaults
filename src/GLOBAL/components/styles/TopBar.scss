@@ -1,0 +1,45 @@
+@use '../../../global' as *;
+
+.topbar {
+  display: none;
+  background: $color-primary;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 12px;
+
+  @media (min-width: $breakpoint-md) {
+    display: block;
+  }
+
+  &__inner {
+    display: flex;
+    gap: $space-xl;
+    padding-top: $space-sm;
+    padding-bottom: $space-sm;
+  }
+
+  &__office {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.5;
+  }
+
+  &__label {
+    color: #fff;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  &__phone {
+    color: $color-accent;
+  }
+
+  &__email,
+  &__hours {
+    color: rgba(255, 255, 255, 0.55);
+  }
+
+  &__email:hover {
+    color: #fff;
+  }
+}

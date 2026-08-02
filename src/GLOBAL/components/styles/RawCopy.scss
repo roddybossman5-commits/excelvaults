@@ -1,0 +1,8 @@
+@use '../../../global' as *;
+
+// Matches how the live site leaks the copy: plain body text, wrapping, no styling.
+.raw-copy {
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: $color-text;
+}
