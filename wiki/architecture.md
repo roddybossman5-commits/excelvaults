@@ -62,8 +62,7 @@ src/
 │   └── siteData.js                # Same copy as structured data — FIXED mode
 │
 ├── mocks/
-│   ├── seedUsers.example.json     # Committed template + fallback
-│   └── seedUsers.local.json       # Real creds, GITIGNORED — see mock-auth.md
+│   └── seedUsers.json             # Login seed — committed, see mock-auth.md
 │
 └── utils/
     └── shortcodes.js              # WPBakery shortcode stripper

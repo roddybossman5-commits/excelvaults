@@ -1,40 +1,15 @@
 /**
  * Mock authentication — issue 6 from Inbox/Raw Prompt Thoughts. There is no real
  * excelvaults backend in this replica; adding a credential means adding one object
- * to the seed file.
+ * to `seedUsers.json`, no code change.
  *
- * Seeds come from `seedUsers.local.json` when it is present, otherwise from the
- * committed `seedUsers.example.json`. The local file holds real live-site
- * credentials, so it is excluded from both git (.gitignore) and Vercel uploads
- * (.vercelignore) — deployed builds get the dummy example seeds only.
- *
- * `require.context` rather than a plain `require`: webpack resolves imports
- * statically, so a bare `require('./seedUsers.local.json')` inside a try/catch
- * still fails the BUILD when the file is absent. require.context globs over
- * whatever actually exists at build time, so a missing local file is a non-event.
- *
+ * NOTE: this is client-side auth, so the seed file is compiled into the public
+ * bundle and its credentials are readable by anyone who opens DevTools on the
+ * deployed site. That is inherent to a mock login, not a bug — it was an explicit
+ * decision to ship working credentials so the deployed demo is usable.
  * See wiki/mock-auth.md.
  */
-import exampleSeed from '../../mocks/seedUsers.example.json';
-
-function loadSeed() {
-  try {
-    const ctx = require.context('../../mocks', false, /seedUsers\.local\.json$/);
-    const key = ctx.keys()[0];
-
-    if (key) {
-      console.log('[mockAuth] using local seed file');
-      return ctx(key);
-    }
-  } catch (err) {
-    console.warn('[mockAuth] local seed lookup failed:', err.message);
-  }
-
-  console.warn('[mockAuth] no local seed file, using example seeds (dummy credentials)');
-  return exampleSeed;
-}
-
-const seed = loadSeed();
+import seed from '../../mocks/seedUsers.json';
 
 const LATENCY_MS = 300;
 

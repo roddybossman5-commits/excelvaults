@@ -4,8 +4,9 @@ Covers issues 5–6 from `Inbox/Raw Prompt Thoughts`.
 
 ## Seeding Credentials `✅ VERIFIED`
 
-There is no excelvaults backend in this replica. Logins are matched against a JSON
-seed file. Adding an account means appending one object to `users` — no code change:
+There is no excelvaults backend in this replica. Logins are matched against
+`src/mocks/seedUsers.json`. Adding an account means appending one object to `users` —
+no code change:
 
 ```json
 {
@@ -23,24 +24,27 @@ seed file. Adding an account means appending one object to `users` — no code c
 `src/GLOBAL/redux/mockAuthService.js` resolves after a 300 ms simulated latency, so
 loading states are actually exercisable.
 
-## Two Seed Files `✅ VERIFIED`
+## Credentials Are Public — By Decision `⚠️`
 
-| File | Committed? | Purpose |
-|------|-----------|---------|
-| `src/mocks/seedUsers.local.json` | **No — gitignored** | Real credentials. What Playwright uses. |
-| `src/mocks/seedUsers.example.json` | Yes | Dummy template and runtime fallback. |
+`seedUsers.json` is **committed**, and the repo and deployment are **public**.
 
-`mockAuthService` prefers the local file and falls back to the example, so a fresh
-clone still builds and runs — it just cannot log in until someone supplies the local
-file. To set up: copy the example, rename it to `seedUsers.local.json`, fill in real
-values.
+This is deliberate. Auth here is entirely client-side, so the seed file is compiled
+into the bundle — anyone can read the credentials from DevTools on the deployed site.
+That is true of *any* credential that makes the deployed login work; a Vercel
+environment variable would not help, because CRA inlines env vars into the bundle at
+build time. There is no way to have a working public demo login whose password is not
+extractable.
 
-**Why this split:** `roddybossman5-commits/excelvaults` is a **public** repo, and the
-working credential is a real live-site login, not a fixture. Committing it would
-publish it permanently — git history keeps a secret even after the file is deleted.
+Given that, the choice was between shipping separate demo credentials or the real
+live-site ones. **The real ones were chosen** so the deployed demo matches the live
+site exactly.
 
-Never move real credentials into the example file, and never remove the `.gitignore`
-entry.
+Consequences to be aware of:
+- The live-site password is public. Rotating it on the real site is worth considering.
+- It is in git history permanently — deleting the file later does not unpublish it.
+- If you ever want it private again, the fix is not `.gitignore` alone: the Vercel CLI
+  uploads from the working directory and ignores `.gitignore`, so `.vercelignore`
+  is needed too. That mistake already happened once (see log.md, 2026-08-02).
 
 ## Session Persistence `✅ VERIFIED`
 

@@ -36,20 +36,13 @@ Default comes from `REACT_APP_RENDER_MODE`. See [wiki/bypass-flags.md](wiki/bypa
 
 ## Mock Login
 
-`/tracking` is the login route. Credentials are seeded from a JSON file:
+`/tracking` is the login route. Credentials are seeded from
+`src/mocks/seedUsers.json` — add an object to `users` to register another account,
+no code change needed.
 
-```bash
-cp src/mocks/seedUsers.example.json src/mocks/seedUsers.local.json
-# then fill in real values
-```
-
-`seedUsers.local.json` is **gitignored** — this repo is public and the working
-credential is a real live-site login, not a fixture. The committed
-`seedUsers.example.json` holds dummy values and acts as the runtime fallback, so a
-fresh clone builds and runs; it just cannot log in until you supply the local file.
-
-Add an object to `users` to register another account. See
-[wiki/mock-auth.md](wiki/mock-auth.md).
+⚠️ Auth is client-side, so the seed file is compiled into the public bundle and its
+credentials are readable by anyone. That is a deliberate tradeoff so the deployed
+demo is usable — see [wiki/mock-auth.md](wiki/mock-auth.md).
 
 ## Project Structure
 

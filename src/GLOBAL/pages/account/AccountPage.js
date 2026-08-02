@@ -11,7 +11,7 @@ import './AccountPage.scss';
  * name, phone number, next of kin, balance) are the ones replaced with the values
  * from Inbox/2026-07-30-Excel Vaults Dump; the rest are carried over as-is.
  *
- * Values are seeded per-user from src/mocks/seedUsers.local.json (gitignored).
+ * Values are seeded per-user from src/mocks/seedUsers.json.
  */
 const ROWS = [
   { key: 'firstName', label: 'First Name' },

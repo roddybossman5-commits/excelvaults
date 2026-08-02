@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, Navigate } from 'react-router-dom';
 import { login } from '../../redux/slice/authSlice';
 import { SITE } from '../../../content/siteData';
+import EyeIcon from '../../components/icons/EyeIcon';
 import './TrackingPage.scss';
 
 /**
@@ -105,7 +106,7 @@ export default function TrackingPage() {
                 aria-label={showPassword ? 'Hide password' : 'Show password'}
                 onClick={() => setShowPassword((shown) => !shown)}
               >
-                {showPassword ? '🙈' : '👁'}
+                <EyeIcon off={showPassword} />
               </button>
             </div>
 

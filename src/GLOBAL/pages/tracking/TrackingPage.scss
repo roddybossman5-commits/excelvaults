@@ -68,12 +68,20 @@
 
   &__eye {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 0;
+    right: 0;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
     background: none;
     border: 0;
-    font-size: 16px;
+    color: $color-muted;
     cursor: pointer;
+
+    &:hover {
+      color: $color-heading;
+    }
   }
 
   // The portal is a Bootstrap app, not the transcargo theme — its login button is

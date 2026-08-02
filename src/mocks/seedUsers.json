@@ -1,0 +1,21 @@
+{
+  "$comment": "Mock login seed — issue 6 from Inbox/Raw Prompt Thoughts. Add an object to `users` to register another account; nothing else changes. Profile fields mirror the account dashboard rows.",
+  "users": [
+    {
+      "id": "haddy",
+      "username": "Terry393",
+      "password": "Great839je",
+      "profile": {
+        "firstName": "Richard",
+        "lastName": "Larrison",
+        "item": "100 KG Of Gold",
+        "dateOfDeposit": "02/04/2001",
+        "phoneNumber": "+447405502595",
+        "serialNumber": "EX89303034",
+        "country": "United Kingdom",
+        "nextOfKin": "Caroline Larrison",
+        "notice": "Balance due 11820 pound sterling"
+      }
+    }
+  ]
+}
