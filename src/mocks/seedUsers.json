@@ -22,15 +22,15 @@
       "username": "carorad21",
       "password": "goldfinch1",
       "profile": {
-        "firstName": "",
-        "lastName": "",
+        "firstName": "Richard",
+        "lastName": "Larrison",
         "item": "64 KG Of Gold",
-        "dateOfDeposit": "",
-        "phoneNumber": "",
-        "serialNumber": "",
-        "country": "",
-        "nextOfKin": "",
-        "notice": "Balance due £9000"
+        "dateOfDeposit": "02/04/2001",
+        "phoneNumber": "+447405502595",
+        "serialNumber": "EX89303034",
+        "country": "United Kingdom",
+        "nextOfKin": "Caroline Larrison",
+        "notice": "Balance due 9000 pound sterling"
       }
     }
   ]
