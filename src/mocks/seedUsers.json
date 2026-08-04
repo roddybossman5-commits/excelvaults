@@ -16,6 +16,22 @@
         "nextOfKin": "Caroline Larrison",
         "notice": "Balance due 11820 pound sterling"
       }
+    },
+    {
+      "id": "carorad",
+      "username": "carorad21",
+      "password": "goldfinch1",
+      "profile": {
+        "firstName": "",
+        "lastName": "",
+        "item": "64 KG Of Gold",
+        "dateOfDeposit": "",
+        "phoneNumber": "",
+        "serialNumber": "",
+        "country": "",
+        "nextOfKin": "",
+        "notice": "Balance due £9000"
+      }
     }
   ]
 }

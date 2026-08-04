@@ -55,7 +55,9 @@ export default function AccountPage() {
               <tr key={row.key}>
                 <th scope="row">{row.label}</th>
                 <td data-field={row.key} className={row.variant ? `is-${row.variant}` : undefined}>
-                  {user?.[row.key] ?? '—'}
+                  {/* `||` not `??` — unfilled seed fields are empty strings, and a
+                      blank cell reads as a rendering bug rather than "no value". */}
+                  {user?.[row.key] || '—'}
                 </td>
               </tr>
             ))}
